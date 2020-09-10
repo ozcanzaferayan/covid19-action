@@ -1,0 +1,17 @@
+{
+    "name": "covid19-action",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/ozcanzaferayan/covid19-action.git",
+    "author": "Özcan Zafer AYAN <ozcanzaferayan@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "dotenv": "^8.2.0",
+        "node-fetch": "^2.6.1",
+        "twilio": "^3.49.1"
+    },
+    "scripts": {
+        "start": "node ./index.js"
+    }
+}
