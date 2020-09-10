@@ -31,11 +31,11 @@ jobs:
         MSISDN_SENDER: ${{ secrets.MSISDN_SENDER }}
         TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
         TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-    - name: Upload files
-      uses: actions/upload-artifact@v2
-      with:
-        name: sms
-        path: sms.txt
+    # - name: Upload files
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: sms
+    #     path: sms.txt
     - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
