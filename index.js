@@ -68,13 +68,13 @@ Vefat: ${covid.gunluk_vefat}
 İyileşen: ${covid.gunluk_iyilesen}
 
 Toplam
-----------
+----------------
 Test: ${covid.toplam_test}
 Vaka: ${covid.toplam_vaka}
 Vefat: ${covid.toplam_vefat}
 İyileşen: ${covid.toplam_iyilesen}
-Zaturre: %${covid.hastalarda_zaturre_oran}
-Agir hasta: ${covid.agir_hasta_sayisi}
+Zatürre: %${covid.hastalarda_zaturre_oran}
+Ağır hasta: ${covid.agir_hasta_sayisi}
 `
     return `${emptyChar}\n${emptyChar}\n${smsText}\n${emptyChar}\n${emptyChar}`;
 }
