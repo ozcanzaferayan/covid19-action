@@ -20,7 +20,7 @@ let evalRes = (res) => {
             const localCovid = JSON.parse(localFileContent);
             const smsText = createSmsText(networkCovid);
             writeCovidDataToFile(networkCovid);
-            writeSmsToFile(smsText);
+            //writeSmsToFile(smsText);
             if (localCovid.tarih === networkCovid.tarih) {
                 console.log('Covid data not released');
                 return;
