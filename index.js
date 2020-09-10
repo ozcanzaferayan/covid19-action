@@ -53,7 +53,7 @@ let readLocalFile = () => {
 }
 
 let createSmsText = (covid) => {
-    let smsText = `Tarih: ${covid.tarih}\nTest: ${covid.gunluk_test}\nVaka: ${covid.gunluk_vaka}\nlüm: ${covid.gunluk_vefat}`
+    let smsText = `Tarih: ${covid.tarih}\nTest: ${covid.gunluk_test}\nVaka: ${covid.gunluk_vaka}\nÖlüm: ${covid.gunluk_vefat}`
     return `${emptyChar}\n${emptyChar}\n${smsText}\n${emptyChar}\n${emptyChar}`;
 }
 
