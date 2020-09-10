@@ -66,6 +66,7 @@ Test: ${covid.gunluk_test}
 Vaka: ${covid.gunluk_vaka}
 Vefat: ${covid.gunluk_vefat}
 İyileşen: ${covid.gunluk_iyilesen}
+
 Toplam
 ----------
 Test: ${covid.toplam_test}
