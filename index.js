@@ -15,11 +15,11 @@ fetch("https://covid19.saglik.gov.tr/")
 
 
 let evalRes = (res) => {
-    const regex = /sondurumjson.+;/g;
     let networkCovid = createCovidObject(res);
     readLocalFile().then(localFileContent => {
             const localCovid = JSON.parse(localFileContent);
             const smsText = createSmsText(networkCovid);
+            writeCovidDataToFile(networkCovid);
             writeSmsToFile(smsText);
             if (localCovid.tarih === networkCovid.tarih) {
                 console.log('Covid data not released');
@@ -52,20 +52,27 @@ let readLocalFile = () => {
     return readFile('previous.json');
 }
 
+let writeCovidDataToFile = (covid) => {
+    fs.writeFile('previous.json', JSON.stringify(covid), function(err) {
+        if (err) return console.log(err);
+        console.log('Written previous.json');
+    });
+}
+
 let createSmsText = (covid) => {
     let smsText =
-        `Tarih: ${covid.tarih}\n
-Test: ${covid.gunluk_test}\n
-Vaka: ${covid.gunluk_vaka}\n
-Vefat: ${covid.gunluk_vefat}\n
-İyileşen: ${covid.gunluk_iyilesen}\n
-Toplam\n
-----------\n
-Test: ${covid.toplam_test}\n
-Vaka: ${covid.toplam_vaka}\n
-Vefat: ${covid.toplam_vefat}\n
-İyileşen: ${covid.toplam_iyilesen}\n
-Zaturre: %${covid.hastalarda_zaturre_oran}\n
+        `Tarih: ${covid.tarih}
+Test: ${covid.gunluk_test}
+Vaka: ${covid.gunluk_vaka}
+Vefat: ${covid.gunluk_vefat}
+İyileşen: ${covid.gunluk_iyilesen}
+Toplam
+----------
+Test: ${covid.toplam_test}
+Vaka: ${covid.toplam_vaka}
+Vefat: ${covid.toplam_vefat}
+İyileşen: ${covid.toplam_iyilesen}
+Zaturre: %${covid.hastalarda_zaturre_oran}
 Agir hasta: ${covid.agir_hasta_sayisi}
 `
     return `${emptyChar}\n${emptyChar}\n${smsText}\n${emptyChar}\n${emptyChar}`;
